@@ -1,6 +1,6 @@
 name: better_page_structure
 description: "A page structure for Flutter applications."
-version: 0.0.3
+version: 0.0.4
 homepage: https://github.com/LiguseCorp/better_page_structure
 
 environment:
@@ -10,7 +10,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  better_useful_extensions: ^0.0.5
+  better_useful_extensions: ^0.0.6
   keframe: ^3.0.0
   window_manager: ^0.4.3
   fluent_ui: ^4.11.1
