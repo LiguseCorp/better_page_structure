@@ -1,3 +1,7 @@
+## 0.0.3
+
+* Fix
+
 ## 0.0.2
 
 * Update window manager version
