@@ -1,3 +1,7 @@
+## 0.0.8
+
+* Add init function.
+
 ## 0.0.7
 
 * Support lower flutter version

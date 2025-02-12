@@ -493,3 +493,9 @@ class _BackButton extends StatelessWidget {
 }
 
 enum BackButtonType { none, back, cancel, done }
+
+class BetterInit{
+  static init() async {
+    await windowManager.ensureInitialized();
+  }
+}
