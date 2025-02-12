@@ -148,7 +148,7 @@ class _PageStructureState extends State<PageStructure> {
 
   Widget _buildMainContent() {
     return PopScope(
-      onPopInvokedWithResult: _handlePopInvoked,
+      onPopInvoked: _handlePopInvoked,
       canPop: widget.onBackButtonPressed == null,
       child: Material(
         color: widget.backgroundColor ?? Theme.of(context).colorScheme.surface,
@@ -178,7 +178,7 @@ class _PageStructureState extends State<PageStructure> {
     );
   }
 
-  void _handlePopInvoked(bool didPop, dynamic _) {
+  void _handlePopInvoked(bool didPop) {
     if (!didPop) {
       if (widget.onBackButtonPressed == null) {
         Navigator.pop(context);

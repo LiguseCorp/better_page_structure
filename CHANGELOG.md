@@ -1,3 +1,7 @@
+## 0.0.7
+
+* Support lower flutter version
+
 ## 0.0.6
 
 * Update dependencies version
