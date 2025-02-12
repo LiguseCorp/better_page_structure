@@ -1,3 +1,7 @@
+## 0.0.5
+
+* Lower dependencies version requirement
+
 ## 0.0.4
 
 * Update dependencies version
