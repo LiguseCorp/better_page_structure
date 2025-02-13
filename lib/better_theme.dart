@@ -3,22 +3,24 @@ import 'package:flutter/material.dart';
 @immutable
 class BetterThemeData {
   final Color primaryColor;
-  final EdgeInsets frameMargin;
+  final EdgeInsets Function() getFrameMargin;
 
   const BetterThemeData({
     this.primaryColor = Colors.blue,
-    this.frameMargin = const EdgeInsets.all(16),
+    this.getFrameMargin = _defaultGetFrameMargin,
   });
 
-  BetterThemeData copyWith({Color? primaryColor, EdgeInsets? frameMargin}) {
-    return BetterThemeData(primaryColor: primaryColor ?? this.primaryColor, frameMargin: frameMargin ?? this.frameMargin);
+  static EdgeInsets _defaultGetFrameMargin() => EdgeInsets.zero;
+
+  BetterThemeData copyWith({Color? primaryColor, EdgeInsets Function()? getFrameMargin}) {
+    return BetterThemeData(primaryColor: primaryColor ?? this.primaryColor, getFrameMargin: getFrameMargin ?? this.getFrameMargin);
   }
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is BetterThemeData && runtimeType == other.runtimeType && primaryColor == other.primaryColor && frameMargin == other.frameMargin;
+  bool operator ==(Object other) => identical(this, other) || other is BetterThemeData && runtimeType == other.runtimeType && primaryColor == other.primaryColor && getFrameMargin == other.getFrameMargin;
 
   @override
-  int get hashCode => primaryColor.hashCode ^ frameMargin.hashCode;
+  int get hashCode => primaryColor.hashCode ^ getFrameMargin.hashCode;
 }
 
 class BetterTheme extends InheritedWidget {

@@ -1,6 +1,6 @@
 name: better_page_structure
 description: "A page structure for Flutter applications."
-version: 0.0.8
+version: 0.1.0
 homepage: https://github.com/LiguseCorp/better_page_structure
 
 environment:

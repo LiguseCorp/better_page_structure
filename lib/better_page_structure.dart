@@ -9,6 +9,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+
 // import 'package:get/get.dart'; // Removed get import
 import 'package:keframe/keframe.dart';
 import 'package:window_manager/window_manager.dart';
@@ -73,6 +74,7 @@ class PageStructure extends StatefulWidget {
 
 class _PageStructureState extends State<PageStructure> {
   late final ScrollController _scrollController;
+
   // final _isScrollToTop = true.obs; // Removed get observable
   // final _isScrollToBottom = true.obs; // Removed get observable
   final ValueNotifier<bool> _isScrollToTop = ValueNotifier<bool>(true); // Replaced with ValueNotifier
@@ -217,7 +219,7 @@ class _PageStructureState extends State<PageStructure> {
   }
 
   double _calculateBodyTopMargin() {
-    return (widget.showActionBar ? 48 : 0) + (widget.useMarginTop?8:0) + (widget.useSafeArea ? BetterTheme.of(context).frameMargin.top : 0);
+    return (widget.showActionBar ? 48 : 0) + (widget.useMarginTop ? 8 : 0) + (widget.useSafeArea ? BetterTheme.of(context).getFrameMargin().top : 0);
   }
 
   Widget _buildAppBar() {
@@ -232,7 +234,12 @@ class _PageStructureState extends State<PageStructure> {
           children: [
             _buildAppBarBackground(),
             _buildTitleRow(),
-            Positioned(bottom: 0,left: 0,right: 0,child: _buildAppBarDivider(),)
+            Positioned(
+              bottom: 0,
+              left: 0,
+              right: 0,
+              child: _buildAppBarDivider(),
+            )
           ],
         ),
       ),
@@ -249,7 +256,8 @@ class _PageStructureState extends State<PageStructure> {
     return Positioned.fill(
       child: ClipRect(
         // child: Obx(() => BackdropFilter( // Removed get Obx
-        child: ValueListenableBuilder<bool>( // Replaced with ValueListenableBuilder
+        child: ValueListenableBuilder<bool>(
+          // Replaced with ValueListenableBuilder
           valueListenable: _isScrollToTop,
           builder: (context, isScrollToTopValue, child) => BackdropFilter(
             filter: ImageFilter.blur(
@@ -286,12 +294,12 @@ class _PageStructureState extends State<PageStructure> {
           ),
         ],
       ),
-    ).marginOnly(top: _safeAreaTopMargin + (widget.useMarginTop?8:0),bottom: 8);
+    ).marginOnly(top: _safeAreaTopMargin + (widget.useMarginTop ? 8 : 0), bottom: 8);
   }
 
   double get _backButtonLeftMargin => widget.backButtonType == BackButtonType.back ? 16 : 24;
 
-  double get _safeAreaTopMargin => widget.useSafeArea ? BetterTheme.of(context).frameMargin.top : 0;
+  double get _safeAreaTopMargin => widget.useSafeArea ? BetterTheme.of(context).getFrameMargin().top : 0;
 
   Widget _buildTitlePlaceholder() {
     return Opacity(
@@ -362,7 +370,8 @@ class _PageStructureState extends State<PageStructure> {
       children: [
         Expanded(
           // child: Obx(() => AnimatedContainer( // Removed get Obx
-          child: ValueListenableBuilder<bool>( // Replaced with ValueListenableBuilder
+          child: ValueListenableBuilder<bool>(
+            // Replaced with ValueListenableBuilder
             valueListenable: _isScrollToTop,
             builder: (context, isScrollToTopValue, child) => AnimatedContainer(
               height: 1,
@@ -379,8 +388,8 @@ class _PageStructureState extends State<PageStructure> {
   double _appBarDividerOpacity(bool isScrollToTopValue) => isScrollToTopValue // Updated to accept isScrollToTopValue
       ? 0
       : widget.showTopScrollDivider
-      ? 0.05
-      : 0;
+          ? 0.05
+          : 0;
 
   Widget _buildBottomBar() {
     return Positioned(
@@ -402,7 +411,8 @@ class _PageStructureState extends State<PageStructure> {
       children: [
         Expanded(
           // child: Obx(() => AnimatedContainer( // Removed get Obx
-          child: ValueListenableBuilder<bool>( // Replaced with ValueListenableBuilder
+          child: ValueListenableBuilder<bool>(
+            // Replaced with ValueListenableBuilder
             valueListenable: _isScrollToBottom,
             builder: (context, isScrollToBottomValue, child) => AnimatedContainer(
               height: 1,
@@ -494,7 +504,7 @@ class _BackButton extends StatelessWidget {
 
 enum BackButtonType { none, back, cancel, done }
 
-class BetterInit{
+class BetterInit {
   static init() async {
     await windowManager.ensureInitialized();
   }

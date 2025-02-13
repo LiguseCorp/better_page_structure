@@ -1,3 +1,7 @@
+## 0.1.0
+
+* Support dynamic frame margin.
+
 ## 0.0.8
 
 * Add init function.
