@@ -310,7 +310,7 @@ class _PageStructureState extends State<PageStructure> {
     );
   }
 
-  double get _titleHorizontalMargin => widget.backButtonType != BackButtonType.none ? 72 : 0;
+  // double get _titleHorizontalMargin => widget.backButtonType != BackButtonType.none ? 72 : 0;
 
   Widget _buildTitleWidget() {
     if (widget.title is String) {
