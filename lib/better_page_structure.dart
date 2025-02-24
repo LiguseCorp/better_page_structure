@@ -280,10 +280,10 @@ class _PageStructureState extends State<PageStructure> {
         children: [
           Expanded(
             child: Stack(
-              alignment: Alignment.topCenter,
+              alignment: Alignment.center,
               children: [
                 _buildTitlePlaceholder(),
-                _buildCenteredTitle(),
+                _buildTitleWidget(),
                 _buildActionButtons(),
                 _buildBackButton(),
               ],
@@ -307,14 +307,6 @@ class _PageStructureState extends State<PageStructure> {
       child: Row(
         children: [_buildTitleWidget()],
       ),
-    );
-  }
-
-  Widget _buildCenteredTitle() {
-    return Positioned(
-      left: _titleHorizontalMargin,
-      right: _titleHorizontalMargin,
-      child: Center(child: _buildTitleWidget()),
     );
   }
 
