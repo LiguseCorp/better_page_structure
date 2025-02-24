@@ -1,3 +1,7 @@
+## 0.1.3
+
+* Fix title widget
+
 ## 0.1.0
 
 * Support dynamic frame margin.
