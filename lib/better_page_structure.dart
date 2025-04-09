@@ -469,7 +469,7 @@ class _BackButton extends StatelessWidget {
             color: color ?? theme.primaryColor,
           ).marginOnly(right: 2),
         Text(
-          _buttonText,
+          getButtonText(context),
           style: TextStyle(
             color: color ?? theme.primaryColor,
             fontSize: 16,
@@ -480,14 +480,14 @@ class _BackButton extends StatelessWidget {
     ).interact(onTap: onPressed);
   }
 
-  String get _buttonText {
+  String getButtonText(BuildContext context) {
     switch (type) {
       case BackButtonType.back:
-        return "返回"; // Removed .i18n
+        return BetterTheme.of(context).backText; // Removed .i18n
       case BackButtonType.done:
-        return "完成"; // Removed .i18n
+        return BetterTheme.of(context).doneText; // Removed .i18n
       case BackButtonType.cancel:
-        return "取消"; // Removed .i18n
+        return BetterTheme.of(context).cancelText; // Removed .i18n
       default:
         return "";
     }

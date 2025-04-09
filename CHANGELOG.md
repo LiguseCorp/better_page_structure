@@ -1,3 +1,7 @@
+## 0.1.6
+
+* Add multi-language support
+
 ## 0.1.4
 
 * Fix title widget

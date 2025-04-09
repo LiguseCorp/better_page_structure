@@ -4,10 +4,16 @@ import 'package:flutter/material.dart';
 class BetterThemeData {
   final Color primaryColor;
   final EdgeInsets Function() getFrameMargin;
+  final String backText;
+  final String doneText;
+  final String cancelText;
 
   const BetterThemeData({
     this.primaryColor = Colors.blue,
     this.getFrameMargin = _defaultGetFrameMargin,
+    this.backText = "Back",
+    this.doneText = "Done",
+    this.cancelText = "Cancel",
   });
 
   static EdgeInsets _defaultGetFrameMargin() => EdgeInsets.zero;
